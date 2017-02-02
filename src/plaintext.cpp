@@ -103,12 +103,12 @@ void PlainText::keyPressEvent(QKeyEvent* event)
     }
     if (listWidget->count() > 0)
     {
-        if (key == Qt::Key_Up)
+        if (key == Qt::Key_Up || ( modifiers & Qt::ControlModifier & key == Qt::Key_Tab ))
         {
             listWidget->setCurrentRow((listWidget->currentRow() + listWidget->count() - 1) % listWidget->count());
             return;
         }
-        if (key == Qt::Key_Down)
+        if (key == Qt::Key_Down || key == Qt::Key_Tab)
         {
             listWidget->setCurrentRow((listWidget->currentRow() + 1) % listWidget->count());
             return;
